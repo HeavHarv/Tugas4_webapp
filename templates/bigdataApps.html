@@ -8,10 +8,10 @@
 <button onclick="window.location.href='/'" class="btn btn-outline btn-rounded btn-info">
     <i class="ti-arrow-left m-l-5"></i>
     <span>Back Home</span>
-</button> Week 1
+</button> Project 1
 
 {{ self.title() }}
-    Week 1
+    Project 1
 
 {% block content %}
 
@@ -22,7 +22,7 @@
             <div class="row">
                 <h3 class="box-title m-b-0">Input Parameter</h3>
                 <p class="text-muted m-b-30 font-13"> Prediksi Harga Kebutuhan Pokok Menggunakan Algoritme <i>Extreme Learning Machine</i> </p>
-                <form class="form-horizontal" action="bigdataApps" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ url_for('bigdataApps') }}" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
                     <div class="form-group">
                         <label class="col-sm-12">Upload File Dataset <sub>.csv</sub></label>
@@ -88,7 +88,7 @@
                                 <tbody>
                                     {% for aktual in y_aktual %}
                                         <tr>
-                                            <th scope="row" >{{ forloop.counter0 }}</th>
+                                            <th scope="row" >{{ loop.index }}</th>
                                             <td>{{'%0.2f'|format(aktual|float)}}</td>
                                         </tr>
                                     {% endfor %}
